@@ -1,77 +1,67 @@
 <%-- 
-    Document   : index.jsp
-    Created on : 27/03/2021, 12:45:45 AM
+    Document   : welcome
+    Created on : 30/03/2021, 7:23:37 PM
     Author     : ormus
 --%>
-<%@ page import="java.sql.*"%>
-<%@ page import="java.util.*" %>
-<% Class.forName("com.mysql.cj.jdbc.Driver"); %>
-<%@ page contentType="text/html" pageEncoding="UTF-8" %>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="model.Customer" %>
+
+<%@ page import = "java.io.*,java.util.*,java.sql.*"%>
+<%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
+<!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <title>SELECT MYSQL</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Welcome Page</title>
+        <style>
+            td {
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
-        <h1>SELECTING DATA</h1>
-        <%!
-            public class Customer {
-                String DB_URL = "jdbc:mysql://localhost:3306/iotbaydb";
-                String USER = "root";
-                String PASS = "password";
-
-                Connection connection = null;
-                PreparedStatement selectCustomers = null;
-                ResultSet result = null;
-                
-                public Customer(){
-                    try {
-                        connection = DriverManager.getConnection(DB_URL, USER, PASS);
-                        selectCustomers = connection.prepareStatement(
-                            "SELECT * FROM Customers"
-                        );
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                };
-                
-                public ResultSet getCustomers(){
-                    try {
-                        result = selectCustomers.executeQuery();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                    
-                    return result;
-                }
-            }
+        <h1>Welcome Page</h1>
+        <button><a href="main.jsp">Main Page</a></button>
+        <%
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+            String firstName = request.getParameter("fname");
+            String lastName = request.getParameter("lname");
         %>
-        <% 
-           Customer customer = new Customer();
-           ResultSet customers = customer.getCustomers();
-        %>
-        
-        <table>
+        <div align="center">
+        <table border="1 solid black" width="50%">
             <tr>
-                <th>id</th>
-                <th>email</th>
-                <th>password</th>
+                <th>Email</th>
+                <th>Password</th>
                 <th>firstName</th>
                 <th>lastName</th>
             </tr>
-            
-                <% while (customers.next()) { %>
-                <tr>
-                    <td><%= customers.getInt("id") %></td>
-                    <td><%= customers.getString("email") %></td>
-                    <td><%= customers.getString("password") %></td>
-                    <td><%= customers.getString("firstName") %></td>
-                    <td><%= customers.getString("lastName") %></td>
-                </tr>
-                <% } %>
-            
+            <tr>
+                <td><%= email %></td>
+                <td><%= password %></td>
+                <td><%= firstName %></td>
+                <td><%= lastName %></td>
+            </tr>
         </table>
+        </div>
+        <% 
+            Customer customer = new Customer(email, password, firstName, lastName);
+            session.setAttribute("customer", customer);
+        %>
+        
+        <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
+         url = "jdbc:mysql://localhost/iotbaydb?useSSL=false"
+         user = "root"  password = "password"/>
+       
+        <sql:update dataSource = "${snapshot}" var = "result">
+         INSERT INTO Customers (email, password, firstName, lastName) VALUES (?,?,?,?);
+         <sql:param value="${param.email}" />
+         <sql:param value="${param.password}" />
+         <sql:param value="${param.fname}" />
+         <sql:param value="${param.lname}" />
+        </sql:update>
     </body>
 </html>

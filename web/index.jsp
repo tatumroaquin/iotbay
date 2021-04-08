@@ -1,43 +1,53 @@
 <%-- 
-    Document   : index
-    Created on : 29/03/2021, 5:18:09 AM
+    Document   : navbar
+    Created on : 07/04/2021, 14:10:00 PM
     Author     : ormus
 --%>
+<jsp:include page="include/header.jsp"/>
 
-<%@ page import = "java.io.*,java.util.*,java.sql.*"%>
-<%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
- 
-<html>
-   <head>
-      <title>SELECT Operation</title>
-   </head>
+        <section id="products">
+           <div class="container">
+              <div class="title">
+                  <h1>Products</h1>
+                  <p> We sell high demand IoT (Internet of Things) devices, network middle boxes and controllers for an affordable price.</p>
+              </div>
+              <div class="row">
+                 <div class="col-md-4">
+                    <div class="card text-center">
+                       <img class="card-img-top" src="https://via.placeholder.com/500x350/5fa9f8/ffffff">
+                       <div class="card-body">
+                          <h5 class="card-title">Products</h5>
+                          <p>the quick brown fox jumps over the lazy dog.</p>
+                          <button class="btn btn-outline-warning">See more</button>
+                          <button class="btn btn-outline-warning">Purchase</button>
+                       </div>
+                    </div>
+                 </div>
 
-   <body>
-      <sql:setDataSource var = "snapshot" driver = "com.mysql.cj.jdbc.Driver"
-         url = "jdbc:mysql://localhost:3306/iotbaydb?useSSL=false"
-         user = "root"  password = "password"/>
- 
-      <sql:query dataSource = "${snapshot}" var = "result">
-         SELECT id, email, password FROM Customers;
-      </sql:query>
- 
-      <table border = "1" width = "100%">
-         <tr>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Password</th>
-         </tr>
-         
-         <c:forEach var = "row" items = "${result.rows}">
-            <tr>
-               <td><c:out value = "${row.id}"/></td>
-               <td><c:out value = "${row.email}"/></td>
-               <td><c:out value = "${row.password}"/></td>
-            </tr>
-         </c:forEach>
-      </table>
- 
-   </body>
-</html>
+                 <div class="col-md-4">
+                    <div class="card text-center">
+                       <img class="card-img-top" src="https://via.placeholder.com/500x350/5fa9f8/ffffff">
+                       <div class="card-body">
+                          <h5 class="card-title">Products</h5>
+                          <p>the quick brown fox jumps over the lazy dog.</p>
+                          <button class="btn btn-outline-warning">See more</button>
+                          <button class="btn btn-outline-warning">Purchase</button>
+                       </div>
+                    </div>
+                 </div>
+
+                 <div class="col-md-4">
+                    <div class="card text-center">
+                       <img class="card-img-top" src="https://via.placeholder.com/500x350/5fa9f8/ffffff">
+                       <div class="card-body">
+                          <h5 class="card-title">Products</h5>
+                          <p>the quick brown fox jumps over the lazy dog.</p>
+                          <button class="btn btn-outline-warning">See more</button>
+                          <button class="btn btn-outline-warning">Purchase</button>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </section>
+<jsp:include page="include/footer.jsp"/>

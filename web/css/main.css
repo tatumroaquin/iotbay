@@ -1,0 +1,67 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 07/04/2021, 2:25:49 PM
+    Author     : ormus
+*/
+body {
+    margin: 0;
+    background-color: #222;
+    font-family: 'TerminessTTF Nerd Font Mono';
+    color: white;
+}
+
+header {
+   background-color: green;
+}
+
+header::after {
+   content: '';
+   display: table;
+   clear: both;
+}
+
+.container {
+   width: 95%;
+   margin: 0 auto;
+}
+
+.nav-title {
+    float: left;
+}
+
+.logo {
+    width: 50px;
+    float: left;
+    padding-top: 5px;
+}
+
+nav {
+   text-align: center;
+}
+
+nav ul {
+   display: block;
+   margin: 0 auto;
+}
+
+nav ul li {
+   display: inline-block;
+   list-style: none;
+   padding: 0 16px;
+}
+
+nav ul li a {
+   display: block;
+   text-decoration: none;
+   font-size: 24px;
+   line-height: 60px;
+   color: white;
+}
+
+nav ul li a:hover {
+   color: orange;
+}

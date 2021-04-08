@@ -1,0 +1,14 @@
+.card {
+    box-shadow: 0 0 10px 5px white;
+}
+.card-body {
+   background-color: #222;
+   color: orange;
+}
+
+.title h1 {
+   font-weight: 900;
+   font-size: 34px;
+   padding-bottom: 5px;
+   text-align: center;
+}

@@ -35,8 +35,8 @@
            <li style="float: right; display: <%= status %>;">
                <table>
                    <tr>
-                       <td><button class="btn btn-outline-warning">Edit</button></td>
-                       <td><button class="btn btn-outline-warning">Logout</button></td>
+                       <td><button onclick="location.href = 'edit.jsp'" class="btn btn-outline-warning">Edit</button></td>
+                       <td><button onclick="location.href = 'logout.jsp'" class="btn btn-outline-warning">Logout</button></td>
                     </tr>
                </table>
            </li>

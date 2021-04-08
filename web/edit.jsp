@@ -7,9 +7,28 @@
 <%@page import="model.Customer" %>
 
 <jsp:include page="include/header.jsp"/>
- <h1 class="text-center"> Registration Form </h1>
+<% 
+    String status = "none";
+    if(request.getParameter("submit") != null) {
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+            String firstName = request.getParameter("fname");
+            String lastName = request.getParameter("lname");
+            String street = request.getParameter("street");
+            String city = request.getParameter("city");
+            String state = request.getParameter("state");
+            String postCode = request.getParameter("postcode");
+            
+            Customer newCustomer = new Customer(email, password, firstName, lastName, street, city, state, postCode);
+            session.setAttribute("customer", newCustomer);
+            
+            status = "block";
+    }
+%>
+ <h1 class="text-center"> Edit Form </h1>
+ <h2 class="text-center" style="display: <%= status %>;">Edit Successful</h2>
  <div class="container">
-    <form method="POST" action="welcome.jsp">
+    <form method="POST" action="edit.jsp">
 
        <div class="form-group row">
           <label class="col-form-label col-sm-2" for="email">Email</label>
@@ -89,7 +108,7 @@
              <input type="text" name="postcode" placeholder="enter postcode" class="form-control"/>
           </div>
        </div>
-        <input type="submit" name="submit" class="btn btn-outline-warning" value="Register"/>
+        <input type="submit" name="submit" class="btn btn-outline-warning" value="Edit"/>
     </form>
  </div>
 <jsp:include page="include/footer.jsp"/>

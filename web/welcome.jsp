@@ -7,12 +7,7 @@
 <jsp:include page="include/header.jsp"/>
     <%
         Customer customer = (Customer)session.getAttribute("customer");
-        String message = "", loginEmail = "", loginPassword = "";
-        if (session.getAttribute("login") != null) {
-            message = "Welcome " + customer.getFirstName();
-        } else {
-            message = "you are not logged in.";
-        }
+        String message = String.valueOf(session.getAttribute("login"));
         
         if(request.getParameter("submit") != null) {
             String email = request.getParameter("email");
@@ -28,22 +23,9 @@
             session.setAttribute("customer", newCustomer);
         }
         
-        if(request.getParameter("login") != null) {
-            loginEmail = request.getParameter("loginEmail");
-            loginPassword = request.getParameter("loginPassword");
-            
-            if(loginEmail.equals(customer.getEmail())&& loginPassword.equals(customer.getPassword())) {
-                session.setAttribute("login", 1);
-            } else {
-                message = "email or password invalid.";
-            }
-            
+        if(message == "null") {
+            message = "You are not logged in.";
         }
-           
     %>
     <h1 class="text-center"><%= message %></h1>
-    <h2 class="text-center">req_email: <%= loginEmail %></h2>
-    <h2 class="text-center">req_pass: <%= loginPassword %></h2>
-    <h2 class="text-center">obj_email: <%= customer.getEmail() %></h2>
-    <h2 class="text-center">obj_pass: <%= customer.getPassword() %></h2>
 <jsp:include page="include/footer.jsp"/>

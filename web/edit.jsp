@@ -1,8 +1,4 @@
-<%-- 
-    Document   : register
-    Created on : 29/03/2021, 5:18:09 AM
-    Author     : ormus
---%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Customer" %>
 

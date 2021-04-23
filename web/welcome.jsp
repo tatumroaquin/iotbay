@@ -1,8 +1,4 @@
-<%-- 
-    Document   : welcome
-    Created on : 30/03/2021, 7:23:37 PM
-    Author     : ormus
---%>
+
 <%@ page import = "model.Customer"%>
 <jsp:include page="include/header.jsp"/>
     <%

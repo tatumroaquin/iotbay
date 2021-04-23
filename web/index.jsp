@@ -1,8 +1,4 @@
-<%-- 
-    Document   : navbar
-    Created on : 07/04/2021, 14:10:00 PM
-    Author     : ormus
---%>
+
 <jsp:include page="include/header.jsp"/>
 
         <section id="products">

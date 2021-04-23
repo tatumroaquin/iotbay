@@ -1,8 +1,4 @@
-<%-- 
-    Document   : login
-    Created on : 09/04/2021, 03:58:00 AM
-    Author     : ormus
---%>
+
 <%@ page import = "model.Customer" %>
 <jsp:include page="include/header.jsp"/>
 <%
@@ -16,6 +12,7 @@
                 session.setAttribute("login", message);
                 success = "block";
                 failure = "none";
+                response.sendRedirect("main.jsp");
             } else {
                 String message = "email or password invalid.";
                 session.setAttribute("login", message);

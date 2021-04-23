@@ -3,11 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/documents/projects/netbeans/iotbay/web/index.jsp</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/web/css/main.css</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/src/java/model/Products.java</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/web/css/card.css</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/src/java/model/Product.java</file>
+            <file>file:/D:/documents/projects/netbeans/iotbay/web/login.jsp</file>
+            <file>file:/D:/documents/projects/netbeans/iotbay/web/register.jsp</file>
+            <file>file:/D:/documents/projects/netbeans/iotbay/web/welcome.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -1,15 +1,21 @@
-<%-- 
-    Document   : index
-    Created on : 29/03/2021, 5:18:09 AM
-    Author     : ormus
---%>
+
 <%@ page import = "model.Customer"%>
 <jsp:include page="include/header.jsp"/>
-       <h1 class="text-center">Main Page</h1>
+       
        <%
            Customer customer = (Customer)session.getAttribute("customer");
-           if (customer == null) customer = new Customer();
+           String message = String.valueOf(session.getAttribute("login"));
+           String status = "none";
+           if (customer == null) 
+               customer = new Customer();
+           if (message != "null")
+               status = "block";
+           else
+               status = "none";
+
        %>
+        <h1 class="text-center">Main Page</h1>
+        <h2 class="text-center" style="display: <%= status %>;"> <%= message %> </h2>
        <div class="container">
       <table width = "100%">
          <tr>

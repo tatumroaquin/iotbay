@@ -1,8 +1,3 @@
-<%-- 
-    Document   : welcome
-    Created on : 30/03/2021, 7:23:37 PM
-    Author     : ormus
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Customer" %>

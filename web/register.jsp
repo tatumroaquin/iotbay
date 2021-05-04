@@ -1,11 +1,12 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="model.Customer" %>
+<%@page import="model.Customer"%>
+<%@page import="model.dao.*"%>
 
 <jsp:include page="include/header.jsp"/>
  <h1 class="text-center"> Registration Form </h1>
  <div class="container">
-    <form method="POST" action="welcome.jsp">
+    <form method="POST" action="register.jsp">
 
        <div class="form-group row">
           <label class="col-form-label col-sm-2" for="email">Email</label>
@@ -48,14 +49,14 @@
              <select name="city" class="custom-select">
                 <option selected>Choose...</option>
                 <option value="sydney">Sydney</option>
-                <option value="melbourne">melbourne</option>
-                <option value="adelaide">adelaide</option>
+                <option value="melbourne">Melbourne</option>
+                <option value="adelaide">Adelaide</option>
                 <option value="perth">Perth</option>
                 <option value="brisbane">Brisbane</option>
                 <option value="canberra">Canberra</option>
                 <option value="hobart">Hobart</option>
                 <option value="darwin">Darwin</option>
-                <option value="goldcoast">Goldcoast</option>
+                <option value="goldcoast">Gold coast</option>
                 <option value="wollongong">Wollongong</option>
                 <option value="newcastle">Newcastle</option>
                 <option value="cairns">Cairns</option>

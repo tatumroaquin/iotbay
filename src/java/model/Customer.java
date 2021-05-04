@@ -12,24 +12,33 @@ package model;
 public class Customer {
     private String email;
     private String password;
+    private String mobile;
     private String firstName;
     private String lastName;
     private String street;
     private String city;
     private String state;
     private String postCode;
+    private String country;
     
     public Customer() {}
-    public Customer(String email, String password, String firstName, String lastName, String street, String city, String state, String postCode)
+    public Customer(
+            String email, String password, String mobile, 
+            String firstName, String lastName, 
+            String street, String city, String state, 
+            String postCode, String country
+    )
     {
         this.email = email;
         this.password = password;
+        this.mobile = mobile;
         this.firstName = firstName;
         this.lastName = lastName;
         this.street = street;
         this.city = city;
         this.state = state;
         this.postCode = postCode;
+        this.country = country;
     }
 
     public String getEmail() {
@@ -62,6 +71,14 @@ public class Customer {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+    
+    public String getMobile() {
+        return mobile;
+    }
+    
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public String getStreet() {

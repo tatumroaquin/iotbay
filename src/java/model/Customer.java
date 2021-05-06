@@ -113,4 +113,20 @@ public class Customer {
         this.postCode = postCode;
     }
     
+    public String toString()
+    {
+        String str = "";
+        str += "email: "+this.email;
+        str += "password: "+this.password;
+        str += "mobile: "+this.mobile;
+        str += "firstName: "+this.firstName;
+        str += "lastName: "+this.lastName;
+        str += "street: "+this.street;
+        str += "city: "+this.city;
+        str += "state: "+this.state;
+        str += "postCode: "+this.postCode;
+        str += "country: "+this.country;
+        return str;
+    }
+    
 }

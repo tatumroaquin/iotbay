@@ -46,4 +46,5 @@
               </div>
            </div>
         </section>
+        <jsp:include page="/ConnServlet"/>
 <jsp:include page="include/footer.jsp"/>

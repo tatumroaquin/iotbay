@@ -1,3 +1,6 @@
+admin.sql
+cities.sql
+states.sql
 customers.sql
 staff.sql
 suppliers.sql
@@ -9,3 +12,6 @@ orders.sql
 order_line.sql
 invoices.sql
 supply_list.sql
+ual_customer.sql
+ual_staff.sql
+ual_admin.sql

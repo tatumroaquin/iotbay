@@ -1,48 +1,40 @@
-
-<%@ page import = "model.Customer" %>
 <jsp:include page="include/header.jsp"/>
-<%
-    Customer customer = (Customer) session.getAttribute("customer");
-    String success = "none", failure = "none";
-    if(request.getParameter("login") != null) {
-            String loginEmail = request.getParameter("loginEmail");
-            String loginPassword = request.getParameter("loginPassword");
-            if(loginEmail.equals(customer.getEmail()) && loginPassword.equals(customer.getPassword())) {
-                String message = "Welcome " + customer.getFirstName();
-                session.setAttribute("login", message);
-                success = "block";
-                failure = "none";
-                response.sendRedirect("main.jsp");
-            } else {
-                String message = "email or password invalid.";
-                session.setAttribute("login", message);
-                success = "none";
-                failure = "block";
-            }
-        }
-%>
- <h1 class="text-center"> Login Form </h1>
- <h2 class="text-center" style="display: <%= success %>;"> Logged <%= customer.getFirstName() %> </h2>
- <h2 class="text-center" style="color: red; display: <%= failure %>;"> check your details again </h2>
- <div class="container">
-    <form method="POST" action="login.jsp">
 
-       <div class="form-group row">
-          <label class="col-form-label col-sm-2" for="email">Email</label>
-          <div class="col-sm-10">
-             <input type="text" name="loginEmail" placeholder="enter email" class="form-control"/>
-          </div>
-       </div>
+<div class="row">
+  <div class="col-md-4">
+     <div class="card text-center mx-auto" style="width: 18rem;">
+        <img class="card-img-top" src="image/admin-icon.png">
+        <div class="card-body">
+           <h5 class="card-title">Admin</h5>
+           <a href="login_admin.jsp">
+              <button class="btn btn-outline-warning">Login</button>
+           </a>
+        </div>
+     </div>
+  </div>
 
-       <div class="form-group row">
-          <label class="col-form-label col-sm-2" for="password">Password</label>
-          <div class="col-sm-10">
-             <input type="password" name="loginPassword" placeholder="enter password" class="form-control"/>
-          </div>
-       </div>
+  <div class="col-md-4">
+     <div class="card text-center mx-auto" style="width: 18rem;">
+        <img class="card-img-top" src="image/staff-icon.png">
+        <div class="card-body">
+           <h5 class="card-title">Staff</h5>
+           <a href="login_staff.jsp">
+               <button class="btn btn-outline-warning">Login</button>
+           </a>
+        </div>
+     </div>
+  </div>
 
-        <input type="submit" name="login" class="btn btn-outline-warning" value="Login"/>
-
-    </form>
- </div>
+  <div class="col-md-4">
+     <div class="card text-center mx-auto" style="width: 18rem;">
+        <img class="card-img-top" src="image/customer-icon.png">
+        <div class="card-body">
+           <h5 class="card-title">Customer</h5>
+           <a href="login_customer.jsp">
+              <button class="btn btn-outline-warning">Login</button>
+           </a>
+        </div>
+     </div>
+  </div>
+</div>
 <jsp:include page="include/footer.jsp"/>

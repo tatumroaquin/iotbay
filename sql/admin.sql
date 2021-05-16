@@ -1,4 +1,4 @@
-CREATE TABLE Staff(
+CREATE TABLE Admin(
    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
    email VARCHAR(128) NOT NULL,
    password VARCHAR(128) NOT NULL,
@@ -11,6 +11,6 @@ CREATE TABLE Staff(
    postCode INT NOT NULL,
    country VARCHAR(15) NOT NULL
 );
-INSERT INTO Staff (email, password, mobile, firstName, lastName, street, city, state, postCode, country) 
+INSERT INTO Admin(email, password, mobile, firstName, lastName, street, city, state, postCode, country) 
 VALUES
-('asdf@iotbay.com', 'asdf123', '(02) 9025 6750', 'Henry', 'Seaborn', '1 Avenue', 'GOROKAN', 'NSW', 1000, 'Australia');
+('admin@iotbay.com', 'adminpass', '0413448593', 'Gerald', 'Boltor', '1 Avenue', 'GOROKAN', 'NSW', 1000, 'Australia');

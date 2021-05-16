@@ -1,3 +1,91 @@
+CREATE TABLE Admin(
+   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+   email VARCHAR(128) NOT NULL,
+   password VARCHAR(128) NOT NULL,
+   mobile VARCHAR(20),
+   firstName VARCHAR(255) NOT NULL,
+   lastName VARCHAR(255) NOT NULL,
+   street VARCHAR(255) NOT NULL,
+   city VARCHAR(15) NOT NULL,
+   state VARCHAR(15) NOT NULL,
+   postCode INT NOT NULL,
+   country VARCHAR(15) NOT NULL
+);
+INSERT INTO Admin(email, password, mobile, firstName, lastName, street, city, state, postCode, country) 
+VALUES
+('admin@iotbay.com', 'adminpass', '0413448593', 'Gerald', 'Boltor', '1 Avenue', 'GOROKAN', 'NSW', 1000, 'Australia');
+CREATE TABLE Cities(
+   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+   name VARCHAR(25) NOT NULL
+);
+
+INSERT INTO Cities(name) VALUES 
+('Adelaide'),
+('Albany'),
+('Albury'),
+('Alice Springs'),
+('Armidale'),
+('Ballarat'),
+('Bathurst'),
+('Bendigo'),
+('Brisbane'),
+('Broken Hill'),
+('Bunbury'),
+('Bundaberg Central'),
+('Busselton'),
+('Cairns'),
+('Canberra'),
+('Coffs Harbour'),
+('Darwin'),
+('Devonport'),
+('Dubbo'),
+('Geelong'),
+('Geraldton'),
+('Gladstone Central'),
+('Gold Coast'),
+('Goulburn'),
+('Hervey Bay'),
+('Hobart'),
+('Kalgoorlie Boulder'),
+('Launceston'),
+('Lismore'),
+('Mackay'),
+('Melbourne'),
+('Mildura'),
+('Mount Gambier'),
+('Newcastle'),
+('Nowra'),
+('Orange'),
+('Perth'),
+('Port Agusta'),
+('Port Lincoln'),
+('Queanbeyan'),
+('Rockhampton'),
+('Shepparton'),
+('Sydney'),
+('Tamworth'),
+('Toowoomba'),
+('Townsville'),
+('Traralgon'),
+('Wagga'),
+('Warrnambool'),
+('Whyalla'),
+('Wollogong');
+CREATE TABLE States(
+   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+   acronym VARCHAR(3) NOT NULL,
+   fullName VARCHAR(20) NOT NULL
+);
+
+INSERT INTO States(acronym, fullName)
+VALUES 
+('NSW','New South Wales'),
+('NT','North Territory'),
+('QLD','Queensland'),
+('SA','South Australia'),
+('TAS','Tasmania'),
+('VIC','Victoria'),
+('WA','Western Australia');
 CREATE TABLE Customers (
    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
    email VARCHAR(128) NOT NULL,
@@ -12,26 +100,29 @@ CREATE TABLE Customers (
    country VARCHAR(20) NOT NULL
 );
 
-INSERT INTO Customers (email, password, mobile, firstName, lastName, street, city, state, postCode, country, mobile) VALUES
+INSERT INTO Customers (email, password, mobile, firstName, lastName, street, city, state, postCode, country) 
+VALUES
 ('henry.seaborn@email.com', 'password1', '(02) 9025 6750', 'Henry', 'Seaborn', '1 street Avenue', 'GOROKAN', 'NSW', 1000, 'Australia'),
 ('michael.arnot@email.com', 'password2', '(02) 9025 6751', 'Michael', 'Arnot', '2 street', 'WAVERLEY', 'QLD', 1001, 'Australia'),
-('john.doe@email.com', 'password3', '(02) 9025 6752', 'John', 'Doe', '3 street', 'ROCKDALE', 'NSW', 2216, 'Australia', ),
+('john.doe@email.com', 'password3', '(02) 9025 6752', 'John', 'Doe', '3 street', 'ROCKDALE', 'NSW', 2216, 'Australia'),
 ('jane.doe@email.com', 'password4', '(02) 9025 6753', 'Jane', 'Doe', '4 street', 'MOSSIFACE', 'VIC', 3885, 'Australia'),
 ('jackie.chan@email.com', 'password5', '(02) 9025 6754', 'Henry', 'Seaborn', '5 street', 'GOLLAN', 'NSW', 2820, 'Australia');
-
 CREATE TABLE Staff(
    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
    email VARCHAR(128) NOT NULL,
    password VARCHAR(128) NOT NULL,
+   mobile VARCHAR(20),
    firstName VARCHAR(255) NOT NULL,
    lastName VARCHAR(255) NOT NULL,
    street VARCHAR(255) NOT NULL,
    city VARCHAR(15) NOT NULL,
    state VARCHAR(15) NOT NULL,
-   postCode VARCHAR(5) NOT NULL,
-   country VARCHAR(15) NOT NULL,
-   mobile VARCHAR(20)
+   postCode INT NOT NULL,
+   country VARCHAR(15) NOT NULL
 );
+INSERT INTO Staff (email, password, mobile, firstName, lastName, street, city, state, postCode, country) 
+VALUES
+('asdf@iotbay.com', 'asdf123', '(02) 9025 6750', 'Henry', 'Seaborn', '1 Avenue', 'GOROKAN', 'NSW', 1000, 'Australia');
 CREATE TABLE Suppliers(
    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
    companyName VARCHAR(255) NOT NULL,
@@ -113,3 +204,50 @@ CREATE TABLE SupplyList(
    FOREIGN KEY (product_id) REFERENCES Products(id),
    PRIMARY KEY (invoice_id, product_id)
 );
+CREATE TABLE UALCustomer(
+   customer_id INT NOT NULL,
+   login_date DATE NOT NULL,
+   login_time TIME NOT NULL,
+   logout_date DATE,
+   logout_time TIME
+);
+
+INSERT INTO UALCustomer(customer_id, login_date, login_time, logout_date, logout_time)
+VALUES
+(1, '2021-04-16', '16:08:00', '2021-06-16', '17:08:00'),
+(1, '2021-04-16', '16:08:00', null, null);
+
+INSERT INTO UALCustomer(customer_id, login_date, login_time)
+VALUES
+(1, '2021-04-16', '16:08:00');
+CREATE TABLE UALStaff(
+   staff_id INT NOT NULL,
+   login_date DATE NOT NULL,
+   login_time TIME NOT NULL,
+   logout_date DATE,
+   logout_time TIME
+);
+INSERT INTO UALStaff(staff_id, login_date, login_time, logout_date, logout_time)
+VALUES
+(1, '2021-04-16', '16:08:00', '2021-06-16', '17:08:00'),
+(1, '2021-04-16', '16:08:00', null, null);
+
+INSERT INTO UALStaff(staff_id, login_date, login_time)
+VALUES
+(1, '2021-04-16', '16:08:00');
+
+CREATE TABLE UALAdmin(
+   admin_id INT NOT NULL,
+   login_date DATE NOT NULL,
+   login_time TIME NOT NULL,
+   logout_date DATE,
+   logout_time TIME
+);
+INSERT INTO UALAdmin(admin_id, login_date, login_time, logout_date, logout_time)
+VALUES
+(1, '2021-04-16', '16:08:00', '2021-06-16', '17:08:00'),
+(1, '2021-04-16', '16:08:00', null, null);
+
+INSERT INTO UALAdmin(admin_id, login_date, login_time)
+VALUES
+(1, '2021-04-16', '16:08:00');

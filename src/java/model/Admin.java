@@ -5,7 +5,7 @@ import java.io.Serializable;
  *
  * @author ormus
  */
-public class Staff implements Serializable {
+public class Admin implements Serializable {
     private String email;
     private String password;
     private String mobile;
@@ -17,9 +17,9 @@ public class Staff implements Serializable {
     private String postCode;
     private String country;
     
-    public Staff() {}
+    public Admin() {}
     
-    public Staff(
+    public Admin(
             String email, String password, String mobile, 
             String firstName, String lastName, String street,
             String city, String state, String postCode,

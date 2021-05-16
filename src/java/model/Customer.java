@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
+import java.io.Serializable;
 /**
  *
  * @author ormus
  */
-public class Customer {
+public class Customer implements Serializable {
     private String email;
     private String password;
     private String mobile;
@@ -22,6 +18,7 @@ public class Customer {
     private String country;
     
     public Customer() {}
+    
     public Customer(
             String email, String password, String mobile, 
             String firstName, String lastName, 
@@ -111,6 +108,14 @@ public class Customer {
 
     public void setPostCode(String postCode) {
         this.postCode = postCode;
+    }
+    
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
     
     public String toString()

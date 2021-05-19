@@ -14,5 +14,5 @@ You can read these instructions from [github](https://github.com/ormux/iotbay/tr
 5. Every single table should be created and errors should not appear in the NetBeans console, verify that the tables exist by checking `jdbc:derby://localhost:1527/iotdb [isduser on ISDUSER] > ISDUSER > Tables`
 
 ## Website Setup
-1. On the NetBeans IDE right-click on `Files>Import Project>From Zip...` then navigate to the location of this project, named `iotbay.zip` and import the contents to your NetBeans projects.
+1. On the NetBeans IDE right-click on `Files > Import Project > From Zip...` then navigate to the location of this project, named `iotbay.zip` and import the contents to your NetBeans projects.
 2. You can view this instructions in a nicely formatted

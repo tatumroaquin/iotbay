@@ -13,4 +13,4 @@ CREATE TABLE Staff(
 );
 INSERT INTO Staff (email, password, mobile, firstName, lastName, street, city, state, postCode, country) 
 VALUES
-('asdf@iotbay.com', 'asdf123', '(02) 9025 6750', 'Henry', 'Seaborn', '1 Avenue', 'GOROKAN', 'NSW', 1000, 'Australia');
+('asdf@iotbay.com', 'asdf1234', '(02) 9025 6750', 'Asdf', 'Micro', '1 Avenue', 'GOROKAN', 'NSW', 1000, 'Australia');

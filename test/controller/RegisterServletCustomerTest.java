@@ -5,13 +5,15 @@
  */
 package controller;
 
+
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
+import org.junit.Test;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+import java.sql.SQLException;
+import model.Customer;
 /**
  *
  * @author ormus
@@ -20,27 +22,42 @@ public class RegisterServletCustomerTest {
     
     public RegisterServletCustomerTest() {
     }
-    
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
 
     /**
      * Test of doPost method, of class RegisterServletCustomer.
+     * @throws java.sql.SQLException
      */
     @Test
-    public void testDoPost() throws Exception {
-        System.out.println("doPost");
-        HttpServletRequest request = null;
-        HttpServletResponse response = null;
-        RegisterServletCustomer instance = new RegisterServletCustomer();
-        instance.doPost(request, response);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testDoPost() throws SQLException {
+        System.out.println("Register Customer");
+        
+        HttpSession session = mock(HttpSession.class);
+        HttpServletRequest request = mock(HttpServletRequest.class);
+        HttpServletResponse response = mock(HttpServletResponse.class);
+        when(request.getParameter("email")).thenReturn("bcde@iobay.com");
+        when(request.getParameter("password")).thenReturn("asdf1234");
+        when(request.getParameter("mobile")).thenReturn("123456");
+        when(request.getParameter("fname")).thenReturn("First");
+        when(request.getParameter("lname")).thenReturn("Last");
+        when(request.getParameter("street")).thenReturn("Street");
+        when(request.getParameter("city")).thenReturn("City");
+        when(request.getParameter("state")).thenReturn("NSW");
+        when(request.getParameter("postcode")).thenReturn("4444");
+        when(request.getParameter("country")).thenReturn("Australia");
+        
+        Customer customer = new Customer(
+                "bcde@iotbay.com",
+                "asdf1234",
+                "123456",
+                "First",
+                "Last",
+                "Street",
+                "City",
+                "NSW",
+                "4444",
+                "Australia"
+        );
+        assertEquals(customer, (Customer) session.getAttribute("customer"));
     }
     
 }

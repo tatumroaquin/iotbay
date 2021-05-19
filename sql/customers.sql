@@ -18,4 +18,5 @@ VALUES
 ('michael.arnot@email.com', 'password2', '(02) 9025 6751', 'Michael', 'Arnot', '2 street', 'WAVERLEY', 'QLD', 1001, 'Australia'),
 ('john.doe@email.com', 'password3', '(02) 9025 6752', 'John', 'Doe', '3 street', 'ROCKDALE', 'NSW', 2216, 'Australia'),
 ('jane.doe@email.com', 'password4', '(02) 9025 6753', 'Jane', 'Doe', '4 street', 'MOSSIFACE', 'VIC', 3885, 'Australia'),
-('jackie.chan@email.com', 'password5', '(02) 9025 6754', 'Henry', 'Seaborn', '5 street', 'GOLLAN', 'NSW', 2820, 'Australia');
+('jackie.chan@email.com', 'password5', '(02) 9025 6754', 'Henry', 'Seaborn', '5 street', 'GOLLAN', 'NSW', 2820, 'Australia'),
+('asdf@iotbay.com', 'asdf1234', '(02) 9025 6754', 'Asdf', 'Macro', '7 Street', 'Laniakeia', 'NSW', 8338, 'Australia');

@@ -20,6 +20,8 @@
     String displayEditCustomer  = "none";
     String displayEditStaff     = "none";
     String displayEditAdmin     = "none";
+    
+    String displayCreateProduct    = "none";
     if(admin != null || customer != null || staff != null)
     {
         displayLogin = "none";
@@ -35,6 +37,7 @@
     } else if (staff != null) {
         displayUALStaff = "inline-block";
         displayEditStaff = "inline-block";
+        displayCreateProduct = "inline-block";
     } else if (admin != null) {
         displayUALAdmin = "inline-block";
         displayEditAdmin = "inline-block";
@@ -48,8 +51,8 @@
            <li>
               <a href="index.jsp">Index</a>
            </li>
-           <li>
-              <a href="main.jsp">Main</a>
+           <li style="display: <%= displayCreateProduct %>;">
+              <a href="create_product.jsp">Add Products</a>
            </li>
            <li>
               <a href="register.jsp">Register</a>
@@ -65,6 +68,9 @@
            </li>
            <li style="display: <%= displayUALAdmin%>;">
               <a href="ual_admin.jsp">UAL Admin</a>
+           </li>
+           <li>
+               <a href="cart.jsp">Cart</a>
            </li>
            <li style="float: right; display: <%= displayButtons %>;">
                <table>

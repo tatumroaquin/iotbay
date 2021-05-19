@@ -106,7 +106,8 @@ VALUES
 ('michael.arnot@email.com', 'password2', '(02) 9025 6751', 'Michael', 'Arnot', '2 street', 'WAVERLEY', 'QLD', 1001, 'Australia'),
 ('john.doe@email.com', 'password3', '(02) 9025 6752', 'John', 'Doe', '3 street', 'ROCKDALE', 'NSW', 2216, 'Australia'),
 ('jane.doe@email.com', 'password4', '(02) 9025 6753', 'Jane', 'Doe', '4 street', 'MOSSIFACE', 'VIC', 3885, 'Australia'),
-('jackie.chan@email.com', 'password5', '(02) 9025 6754', 'Henry', 'Seaborn', '5 street', 'GOLLAN', 'NSW', 2820, 'Australia');
+('jackie.chan@email.com', 'password5', '(02) 9025 6754', 'Henry', 'Seaborn', '5 street', 'GOLLAN', 'NSW', 2820, 'Australia'),
+('asdf@iotbay.com', 'asdf1234', '(02) 9025 6754', 'Asdf', 'Macro', '7 Street', 'Laniakeia', 'NSW', 8338, 'Australia');
 CREATE TABLE Staff(
    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
    email VARCHAR(128) NOT NULL,
@@ -122,7 +123,7 @@ CREATE TABLE Staff(
 );
 INSERT INTO Staff (email, password, mobile, firstName, lastName, street, city, state, postCode, country) 
 VALUES
-('asdf@iotbay.com', 'asdf123', '(02) 9025 6750', 'Henry', 'Seaborn', '1 Avenue', 'GOROKAN', 'NSW', 1000, 'Australia');
+('asdf@iotbay.com', 'asdf1234', '(02) 9025 6750', 'Asdf', 'Micro', '1 Avenue', 'GOROKAN', 'NSW', 1000, 'Australia');
 CREATE TABLE Suppliers(
    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
    companyName VARCHAR(255) NOT NULL,
@@ -131,6 +132,11 @@ CREATE TABLE Suppliers(
    lastName VARCHAR(255) NOT NULL,
    mobile VARCHAR(20) NOT NULL
 );
+INSERT INTO Suppliers(companyName, email, firstName, lastName, mobile) VALUES
+('Apple', 'green.mantis@apple.com', 'Green', 'Mantis', '0483998473'),
+('Microsoft', 'blue.mantis@apple.com', 'Blue', 'Mantis', '0483998474'),
+('Cisco', 'cyan.mantis@apple.com', 'Cyan', 'Mantis', '0483998475');
+
 CREATE TABLE Categories(
    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
    name VARCHAR(255) NOT NULL,
@@ -146,6 +152,10 @@ CREATE TABLE Products(
 
    FOREIGN KEY (supplier_id) REFERENCES Suppliers(id)
 );
+INSERT INTO Products(supplier_id, name, price, description, quantity) VALUES
+(1, 'P4 Switch', '777', 'an SDN middle box with P4 enabled API', 10),
+(2, 'OpenFlow Switch', '888', 'an SDN middle box with OpenFLow enabled API', 20),
+(3, 'Zodiac Fx Switch', '999', 'an SDN middle box with Zodiac enabled API', 30);
 CREATE TABLE Product_Categories(
    product_id INT NOT NULL,
    category_id INT NOT NULL,

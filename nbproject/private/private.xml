@@ -4,18 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/documents/projects/netbeans/iotbay/src/java/controller/LoginServletCustomer.java</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/web/login_admin.jsp</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/web/logout.jsp</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/src/java/controller/LoginServletAdmin.java</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/web/register_customer.jsp</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/web/edit.jsp</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/src/java/model/UAL.java</file>
+            <file>file:/D:/documents/projects/netbeans/iotbay/test/controller/RegisterServletCustomerTest.java</file>
             <file>file:/D:/documents/projects/netbeans/iotbay/src/java/controller/LoginServletStaff.java</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/web/ual_admin.jsp</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/web/include/navbar.jsp</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/src/java/controller/RegisterServletStaff.java</file>
+            <file>file:/D:/documents/projects/netbeans/iotbay/web/login_customer.jsp</file>
+            <file>file:/D:/documents/projects/netbeans/iotbay/web/login_admin.jsp</file>
             <file>file:/D:/documents/projects/netbeans/iotbay/src/java/model/dao/DBManager.java</file>
+            <file>file:/D:/documents/projects/netbeans/iotbay/web/welcome.jsp</file>
+            <file>file:/D:/documents/projects/netbeans/iotbay/src/java/controller/LoginServletAdmin.java</file>
+            <file>file:/D:/documents/projects/netbeans/iotbay/web/login_staff.jsp</file>
+            <file>file:/D:/documents/projects/netbeans/iotbay/web/edit_customer.jsp</file>
             <file>file:/D:/documents/projects/netbeans/iotbay/web/WEB-INF/web.xml</file>
+            <file>file:/D:/documents/projects/netbeans/iotbay/src/java/controller/EditServletCustomer.java</file>
         </group>
     </open-files>
 </project-private>

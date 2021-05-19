@@ -6,3 +6,8 @@ CREATE TABLE Suppliers(
    lastName VARCHAR(255) NOT NULL,
    mobile VARCHAR(20) NOT NULL
 );
+INSERT INTO Suppliers(companyName, email, firstName, lastName, mobile) VALUES
+('Apple', 'green.mantis@apple.com', 'Green', 'Mantis', '0483998473'),
+('Microsoft', 'blue.mantis@apple.com', 'Blue', 'Mantis', '0483998474'),
+('Cisco', 'cyan.mantis@apple.com', 'Cyan', 'Mantis', '0483998475');
+

@@ -60,6 +60,10 @@ public class Validator implements Serializable {
       session.removeAttribute("error_staff_not_exist");
    }
    
+   public void clearProduct(HttpSession session) {
+       session.removeAttribute("error_product_exist");
+   }
+   
    public void clear(HttpSession session) {
        this.clearAdmin(session);
        this.clearCustomer(session);

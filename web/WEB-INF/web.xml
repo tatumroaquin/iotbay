@@ -45,7 +45,14 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>controller.LogoutServlet</servlet-class>
     </servlet>
-    
+    <servlet>
+        <servlet-name>CreateServletProduct</servlet-name>
+        <servlet-class>controller.CreateServletProduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteServletProduct</servlet-name>
+        <servlet-class>controller.DeleteServletProduct</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -89,6 +96,14 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateServletProduct</servlet-name>
+        <url-pattern>/CreateServletProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteServletProduct</servlet-name>
+        <url-pattern>/DeleteServletProduct</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

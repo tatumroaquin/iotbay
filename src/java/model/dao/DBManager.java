@@ -803,4 +803,167 @@ public class DBManager {
      int result = statement.executeUpdate();
      System.out.println(result+" rows updated");
    }
+   // =================== SUPPLIER CRUD OPERATIONS ===================
+   public int findSupplierId(String companyName, String email) throws SQLException
+   {
+      String query = "SELECT * FROM Suppliers ";
+      query += "WHERE companyName=? AND email=?";
+      PreparedStatement statement = this.conn.prepareStatement(query);
+      statement.setString(1, companyName);
+      statement.setString(2, email);
+      
+      ResultSet resultSet = statement.executeQuery();
+      int supplier_id = 0;
+      while(resultSet.next()) {
+
+         String _companyName = resultSet.getString("companyName");
+         String _email       = resultSet.getString("email");
+
+         if(_email.equals(email) && _companyName.equals(companyName)) {
+             supplier_id = resultSet.getInt("id");
+         }
+      }
+      
+      return supplier_id;
+   }
+   
+   public Supplier findSupplier(int id) throws SQLException {
+      //setup the select sql query string       
+      String query = "SELECT * FROM Admin ";
+      query += "WHERE id=?";
+      PreparedStatement statement = this.conn.prepareStatement(query);
+      statement.setInt(1, id);
+      
+      ResultSet result = statement.executeQuery();
+      
+      //search the ResultSet for a user using the parameters
+      while(result.next()) {
+            return new Supplier(
+                    result.getString("companyName"),
+                    result.getString("email"),
+                    result.getString("firstName"),
+                    result.getString("lastName"),
+                    result.getString("mobile")
+            );
+      }
+      
+      return null;
+   }
+   
+   public ArrayList<Supplier> fetchSuppliers() throws SQLException {
+       String query = "SELECT * FROM Suppliers";
+       ResultSet result = st.executeQuery(query);
+
+       ArrayList<Supplier> suppliers = new ArrayList();
+
+       while (result.next()) {
+          String companyName = result.getString("companyName");
+          String email       = result.getString("email");
+          String firstName   = result.getString("firstName");
+          String lastName    = result.getString("lastName");
+          String mobile      = result.getString("mobile");
+          suppliers.add(new Supplier(companyName, email, firstName, lastName, mobile));
+       }
+
+       return suppliers;
+   }
+   
+   // =================== PRODUCT CRUD OPERATIONS ===================
+   public int findProductId(int supplier_id, String name) throws SQLException
+   {
+      String query = "SELECT * FROM Products ";
+      query += "WHERE supplier_id=? AND name=?";
+      PreparedStatement statement = this.conn.prepareStatement(query);
+      statement.setInt(1, supplier_id);
+      statement.setString(2, name);
+      
+      ResultSet resultSet = statement.executeQuery();
+      int product_id = 0;
+      while(resultSet.next()) {
+
+         int _supplier_id = resultSet.getInt("supplier_id");
+         String _name     = resultSet.getString("name");
+
+         if(_supplier_id == supplier_id && _name.equals(name)) {
+             supplier_id  = resultSet.getInt("id");
+         }
+      }
+      
+      return product_id;
+   }
+   
+   public Product findProduct(int supplier_id, String name) throws SQLException {
+      //setup the select sql query string       
+      String query = "SELECT * FROM Products ";
+      query += "WHERE name=? AND supplier_id=?";
+      PreparedStatement statement = this.conn.prepareStatement(query);
+      statement.setString(1, name);
+      statement.setInt(2, supplier_id);
+      
+      ResultSet result = statement.executeQuery();
+      
+      //search the ResultSet for a user using the parameters
+      while(result.next()) {
+         String _name     = result.getString("name");
+         int _supplier_id = result.getInt("supplier_id");
+
+         if(_name.equals(name) && _supplier_id == supplier_id) {
+            return new Product(
+                    result.getString("name"),
+                    result.getFloat("price"),
+                    result.getInt("quantity"),
+                    result.getInt("supplier_id"),
+                    result.getString("description")
+            );
+         }
+      }
+      
+      return null;
+   }
+   
+   public ArrayList<Product> fetchProducts() throws SQLException {
+       String query = "SELECT * FROM Products";
+       ResultSet result = st.executeQuery(query);
+
+       ArrayList<Product> products = new ArrayList();
+
+       while (result.next()) {
+          String name        = result.getString("name");
+          float price        = result.getFloat("price");
+          int quantity       = result.getInt("quantity");
+          int supplier_id    = result.getInt("supplier_id");
+          String description = result.getString("description");
+          products.add(new Product(name, price, quantity, supplier_id, description));
+       }
+
+       return products;
+   }
+   
+   public void createProduct(
+           String name, float price, int quantity,
+           int supplier, String description
+   ) throws SQLException {
+       String query = "INSERT INTO Products(supplier_id, name, price, description, quantity) ";
+       query += "VALUES(?,?,?,?,?)";
+       
+       PreparedStatement statement = this.conn.prepareStatement(query);
+       statement.setInt(1, supplier);
+       statement.setString(2, name);
+       statement.setFloat(3, price);
+       statement.setString(4, description);
+       statement.setInt(5, quantity);
+       
+       int result = statement.executeUpdate();
+       System.out.println(result+" rows created");
+   }
+   
+   public void deleteProduct(int supplier_id, String name) throws SQLException{
+      //code for delete-operation
+      String query = "DELETE FROM Products WHERE supplier_id=? AND name=?";
+      PreparedStatement statement = this.conn.prepareStatement(query);
+      statement.setInt(1, supplier_id);
+      statement.setString(2, name);
+      int result = statement.executeUpdate();
+      System.out.println(result+" rows deleted");
+   }
 }

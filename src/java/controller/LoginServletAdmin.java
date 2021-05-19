@@ -39,6 +39,7 @@ public class LoginServletAdmin extends HttpServlet {
             if (admin != null) {
                manager.createUALAdminLogin(admin);
                session.setAttribute("admin", admin);
+               //response.sendRedirect(request.getContextPath() + "/welcome.jsp");
                request.getRequestDispatcher("login_admin.jsp").include(request, response);
             } else {
                session.setAttribute("error_staff_not_exist", "Staff does not exist");

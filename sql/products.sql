@@ -8,3 +8,7 @@ CREATE TABLE Products(
 
    FOREIGN KEY (supplier_id) REFERENCES Suppliers(id)
 );
+INSERT INTO Products(supplier_id, name, price, description, quantity) VALUES
+(1, 'P4 Switch', '777', 'an SDN middle box with P4 enabled API', 10),
+(2, 'OpenFlow Switch', '888', 'an SDN middle box with OpenFLow enabled API', 20),
+(3, 'Zodiac Fx Switch', '999', 'an SDN middle box with Zodiac enabled API', 30);

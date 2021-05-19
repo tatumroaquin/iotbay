@@ -51,42 +51,42 @@
        <div class="form-group row">
           <label class="col-form-label col-sm-2" for="email">Email</label>
           <div class="col-sm-10">
-             <input type="text" name="email" placeholder="<%= admin.getEmail() %>" class="form-control"/>
+             <input type="text" name="email" value="<%= admin.getEmail() %>" class="form-control"/>
           </div>
        </div>
 
        <div class="form-group row">
           <label class="col-form-label col-sm-2" for="password">Password</label>
           <div class="col-sm-10">
-             <input type="password" name="password" placeholder="<%= admin.getPassword() %>" class="form-control"/>
+             <input type="password" name="password" value="<%= admin.getPassword() %>" class="form-control"/>
           </div>
        </div>
         
         <div class="form-group row">
           <label class="col-form-label col-sm-2" for="mobile">Mobile</label>
           <div class="col-sm-10">
-             <input type="text" name="mobile" placeholder="<%= admin.getMobile() %>" class="form-control"/>
+             <input type="text" name="mobile" value="<%= admin.getMobile() %>" class="form-control"/>
           </div>
        </div>
 
        <div class="form-group row">
           <label class="col-form-label col-sm-2" for="fname">First Name</label>
           <div class="col-sm-10">
-             <input type="text" name="fname" placeholder="<%= admin.getFirstName() %>" class="form-control"/>
+             <input type="text" name="fname" value="<%= admin.getFirstName() %>" class="form-control"/>
           </div>
        </div>
 
        <div class="form-group row">
           <label class="col-form-label col-sm-2" for="lname">Last Name</label>
           <div class="col-sm-10">
-             <input type="text" name="lname" placeholder="<%= admin.getLastName() %>" class="form-control"/>
+             <input type="text" name="lname" value="<%= admin.getLastName() %>" class="form-control"/>
           </div>
        </div>
 
        <div class="form-group row">
           <label class="col-form-label col-sm-2" for="street">Street</label>
           <div class="col-sm-10">
-             <input type="text" name="street" placeholder="<%= admin.getStreet() %>" class="form-control"/>
+             <input type="text" name="street" value="<%= admin.getStreet() %>" class="form-control"/>
           </div>
        </div>
 
@@ -97,13 +97,17 @@
                 <% 
                    DBManager manager = (DBManager) session.getAttribute("manager");
                    ArrayList<City> cities = manager.fetchCities();
-                   ListIterator<City> iter = cities.listIterator();
+                   ListIterator<City> cities_iter = cities.listIterator();
                 %>
-                <option selected><%= admin.getCity()%></option>
-                <% while(iter.hasNext()) { %>
-                <% City city = (City) iter.next(); %>
-                    <option value="<%= city.getName() %>"><%= city.getName() %></option>
-                <% } %>
+                <% while(cities_iter.hasNext()) {
+                    City city = (City) cities_iter.next();
+                    String param = admin.getCity();
+                     if (param.equals(city.getName())) { %>
+                        <option selected><%= city.getName() %></option>
+                   <%} else {%>
+                        <option value="<%= city.getName() %>"><%= city.getName() %></option>
+                   <%}%>
+                 <%}%>
              </select>
           </div>
        </div>
@@ -116,11 +120,15 @@
                  ArrayList<State> states = manager.fetchStates();
                  ListIterator<State> states_iter = states.listIterator();
                 %>
-                <option disabled selected><%= admin.getState()%></option>
-                <% while(states_iter.hasNext()) { %>
-                <% State state = (State) states_iter.next(); %>
-                    <option value="<%= state.getAcronym() %>"><%= state.getFullName() %></option>
-                <% } %>
+                <% while(states_iter.hasNext()) {
+                    State state = (State) states_iter.next();
+                    String param = admin.getState();
+                    if (param.equals(state.getAcronym())) { %>
+                        <option selected value="<%= state.getAcronym() %>"><%= state.getFullName() %></option>
+                  <%} else {%>
+                        <option value="<%= state.getAcronym() %>"><%= state.getFullName() %></option>
+                  <%}%>
+                <%}%>
              </select>
           </div>
        </div>
@@ -128,15 +136,14 @@
        <div class="form-group row">
           <label class="col-form-label col-sm-2" for="postcode">PostCode</label>
           <div class="col-sm-10">
-             <input type="text" name="postcode" placeholder="<%= admin.getPostCode() %>" class="form-control"/>
+             <input type="text" name="postcode" value="<%= admin.getPostCode() %>" class="form-control"/>
           </div>
        </div>
        <div class="form-group row">
           <label class="col-form-label col-sm-2" for="country">Country</label>
           <div class="col-sm-10">
              <select name="country" class="custom-select">
-                 <option disabled selected><%= admin.getCountry() %></option>
-                 <option value="Australia">Australia</option>
+                 <option selected value="<%= admin.getCountry() %>"><%= admin.getCountry() %></option>
              </select>
           </div>
        </div>

@@ -36,6 +36,9 @@ public class LogoutServlet extends HttpServlet {
         {
             try {
                 manager.updateUALCustomerLogout(customer);
+                session.removeAttribute("customer");
+                session.setAttribute("firstName", customer.getFirstName());
+                session.setAttribute("lastName", customer.getLastName());
                 request.getRequestDispatcher("logout.jsp").include(request, response);
             } catch (SQLException ex) {
                 Logger.getLogger(LogoutServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -43,6 +46,9 @@ public class LogoutServlet extends HttpServlet {
         } else if (staff != null) {
             try {
                 manager.updateUALStaffLogout(staff);
+                session.removeAttribute("staff");
+                session.setAttribute("firstName", staff.getFirstName());
+                session.setAttribute("lastName", staff.getLastName());
                 request.getRequestDispatcher("logout.jsp").include(request, response);
             } catch (SQLException ex) {
                 Logger.getLogger(LogoutServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -50,6 +56,9 @@ public class LogoutServlet extends HttpServlet {
         } else if (admin != null) {
             try {
                 manager.updateUALAdminLogout(admin);
+                session.removeAttribute("admin");
+                session.setAttribute("firstName", admin.getFirstName());
+                session.setAttribute("lastName", admin.getLastName());
                 request.getRequestDispatcher("logout.jsp").include(request, response);
             } catch (SQLException ex) {
                 Logger.getLogger(LogoutServlet.class.getName()).log(Level.SEVERE, null, ex);

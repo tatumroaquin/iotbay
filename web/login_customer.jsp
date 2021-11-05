@@ -39,7 +39,7 @@
  <h2 class="text-center" style="color: red; display: <%= displayCustomerNotExist %>;"><%= error_customer_not_exist %></h2>
  
  <div class="container">
-    <form method="POST" action="LoginServletCustomer">
+    <form method="POST" action="ServletCustomerLogin">
         
        <div class="form-group row">
           <label class="col-form-label col-sm-2" for="email">Email</label>

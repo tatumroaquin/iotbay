@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.dao.DBManager;
+import model.dao.DBManagerCustomer;
 import model.*;
 
-public class LoginServletCustomer extends HttpServlet {
+public class ServletCustomerLogin extends HttpServlet {
 
    @Override
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -22,7 +22,7 @@ public class LoginServletCustomer extends HttpServlet {
       String email = request.getParameter("email");
       String password = request.getParameter("password");
 
-      DBManager manager = (DBManager) session.getAttribute("manager");
+      DBManagerCustomer DBManCustomer = (DBManagerCustomer) session.getAttribute("DBManCustomer");
       Customer customer;
 
       validator.clear(session);
@@ -35,9 +35,9 @@ public class LoginServletCustomer extends HttpServlet {
          request.getRequestDispatcher("login_customer.jsp").include(request, response);
       } else {
          try {
-            customer = manager.findCustomer(email, password);
+            customer = DBManCustomer.findCustomer(email, password);
             if (customer != null) {
-               manager.createUALCustomerLogin(customer);
+               DBManCustomer.createUALCustomerLogin(customer);
                session.setAttribute("customer", customer);
                request.getRequestDispatcher("login_customer.jsp").include(request, response);
             } else {

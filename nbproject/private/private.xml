@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/documents/projects/netbeans/iotbay/web/edit_admin.jsp</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/src/java/controller/LogoutServlet.java</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/src/java/model/Staff.java</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/src/java/model/City.java</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/web/edit_staff.jsp</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/web/edit_customer.jsp</file>
-            <file>file:/D:/documents/projects/netbeans/iotbay/web/logout.jsp</file>
+            <file>file:/D:/Documents/projects/netbeans/iotbay/web/read_products.jsp</file>
+            <file>file:/D:/Documents/projects/netbeans/iotbay/src/java/controller/ServletCartAdd.java</file>
+            <file>file:/D:/Documents/projects/netbeans/iotbay/src/java/controller/ServletAdminLogin.java</file>
+            <file>file:/D:/Documents/projects/netbeans/iotbay/src/java/model/dao/DBManagerCustomer.java</file>
+            <file>file:/D:/Documents/projects/netbeans/iotbay/src/java/controller/ServletDBConnect.java</file>
         </group>
     </open-files>
 </project-private>

@@ -6,7 +6,7 @@ CREATE TABLE Orders(
    deliveryDate DATE,
    street VARCHAR(128) NOT NULL,
    city VARCHAR(128) NOT NULL,
-   statei VARCHAR(20) NOT NULL,
+   state VARCHAR(20) NOT NULL,
    postCode VARCHAR(5) NOT NULL,
    country VARCHAR(20) NOT NULL,
 

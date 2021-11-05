@@ -9,19 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.*;
-import model.dao.DBManager;
-public class EditServletStaff extends HttpServlet {
+import model.dao.DBManagerCustomer;
+public class ServletCustomerEdit extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Validator validator = new Validator();
-        DBManager manager   = (DBManager) session.getAttribute("manager");
-        Staff staff   = (Staff) session.getAttribute("staff");
+        DBManagerCustomer DBManCustomer   = (DBManagerCustomer) session.getAttribute("DBManCustomer");
+        Customer customer   = (Customer) session.getAttribute("customer");
         
-        String _email       = staff.getEmail();
-        String _password    = staff.getPassword();
+        String _email       = customer.getEmail();
+        String _password    = customer.getPassword();
         String email        = request.getParameter("email");
         String password     = request.getParameter("password");
         String mobile       = request.getParameter("mobile");
@@ -36,25 +36,25 @@ public class EditServletStaff extends HttpServlet {
         validator.clear(session);
         
         if (!validator.validateEmail(email)) {
-            session.setAttribute("error_staff_email", "Error: Email format is incorrect");
+            session.setAttribute("error_customer_email", "Error: Email format is incorrect");
             System.out.println("email error called");
-            request.getRequestDispatcher("edit_staff.jsp").include(request, response);
+            request.getRequestDispatcher("edit_customer.jsp").include(request, response);
         } else if (!validator.validateName(firstName) && !validator.validateName(lastName)) {
-            session.setAttribute("error_staff_name", "Error: Name format is incorrect");
+            session.setAttribute("error_customer_name", "Error: Name format is incorrect");
             System.out.println("name error called");
-            request.getRequestDispatcher("edit_staff.jsp").include(request, response);
+            request.getRequestDispatcher("edit_customer.jsp").include(request, response);
         } else if (!validator.validatePassword(password)) {
-            session.setAttribute("error_staff_password", "Error: Email format is incorrect");
+            session.setAttribute("error_customer_password", "Error: Email format is incorrect");
             System.out.println("password error called");
-            request.getRequestDispatcher("edit_staff.jsp").include(request, response);
+            request.getRequestDispatcher("edit_customer.jsp").include(request, response);
         } else {
             try {
-                manager.updateStaff(_email, _password, email, password, mobile, firstName, lastName, street, city, state, postCode, country);
-                staff = new Staff(email, password, mobile, firstName, lastName, street, city, state, postCode, country);
-                session.setAttribute("staff", staff);
-                request.getRequestDispatcher("edit_staff.jsp").include(request, response);
+                DBManCustomer.updateCustomer(_email, _password, email, password, mobile, firstName, lastName, street, city, state, postCode, country);
+                customer = new Customer(email, password, mobile, firstName, lastName, street, city, state, postCode, country);
+                session.setAttribute("customer", customer);
+                request.getRequestDispatcher("edit_customer.jsp").include(request, response);
             } catch (SQLException ex) {
-                Logger.getLogger(EditServletStaff.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ServletCustomerEdit.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

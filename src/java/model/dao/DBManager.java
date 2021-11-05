@@ -166,7 +166,7 @@ public class DBManager {
        String query = "SELECT * FROM Customers";
        ResultSet result = st.executeQuery(query);
 
-       ArrayList<Customer> customers = new ArrayList();
+       ArrayList<Customer> customers = new ArrayList<>();
 
        while (result.next()) {
           String email = result.getString("email");
@@ -355,7 +355,7 @@ public class DBManager {
        String query = "SELECT * FROM Staff";
        ResultSet result = st.executeQuery(query);
 
-       ArrayList<Staff> staff = new ArrayList();
+       ArrayList<Staff> staff = new ArrayList<>();
 
        while (result.next()) {
           String email = result.getString("email");
@@ -543,7 +543,7 @@ public class DBManager {
        String query = "SELECT * FROM Admin";
        ResultSet result = st.executeQuery(query);
 
-       ArrayList<Admin> admins = new ArrayList();
+       ArrayList<Admin> admins = new ArrayList<>();
 
        while (result.next()) {
           String email = result.getString("email");
@@ -590,7 +590,7 @@ public class DBManager {
        String query = "SELECT * FROM Cities";
        ResultSet result = st.executeQuery(query);
 
-       ArrayList<City> cities = new ArrayList();
+       ArrayList<City> cities = new ArrayList<>();
 
        while (result.next()) {
           String name = result.getString("name");
@@ -604,7 +604,7 @@ public class DBManager {
        String query = "SELECT * FROM States";
        ResultSet result = st.executeQuery(query);
 
-       ArrayList<State> states = new ArrayList();
+       ArrayList<State> states = new ArrayList<>();
 
        while (result.next()) {
           String acronym = result.getString("acronym");
@@ -626,7 +626,7 @@ public class DBManager {
        statement.setInt(1, customer_id);
        
        ResultSet result = statement.executeQuery();
-       ArrayList<UAL> UALs = new ArrayList();
+       ArrayList<UAL> UALs = new ArrayList<>();
 
        while (result.next()) {
           int id            = result.getInt("customer_id");
@@ -689,7 +689,7 @@ public class DBManager {
        statement.setInt(1, staff_id);
        
        ResultSet result = statement.executeQuery();
-       ArrayList<UAL> UALs = new ArrayList();
+       ArrayList<UAL> UALs = new ArrayList<>();
 
        while (result.next()) {
           int id            = result.getInt("staff_id");
@@ -752,7 +752,7 @@ public class DBManager {
        statement.setInt(1, admin_id);
        
        ResultSet result = statement.executeQuery();
-       ArrayList<UAL> UALs = new ArrayList();
+       ArrayList<UAL> UALs = new ArrayList<>();
 
        while (result.next()) {
           int id            = result.getInt("admin_id");
@@ -854,7 +854,7 @@ public class DBManager {
        String query = "SELECT * FROM Suppliers";
        ResultSet result = st.executeQuery(query);
 
-       ArrayList<Supplier> suppliers = new ArrayList();
+       ArrayList<Supplier> suppliers = new ArrayList<>();
 
        while (result.next()) {
           String companyName = result.getString("companyName");
@@ -925,7 +925,7 @@ public class DBManager {
        String query = "SELECT * FROM Products";
        ResultSet result = st.executeQuery(query);
 
-       ArrayList<Product> products = new ArrayList();
+       ArrayList<Product> products = new ArrayList<>();
 
        while (result.next()) {
           String name        = result.getString("name");

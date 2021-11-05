@@ -1,12 +1,12 @@
 <%@page import = "model.Product"%>
 <%@page import = "model.Customer"%>
 <%@page import = "model.Staff"%>
-<%@page import = "model.dao.DBManager" %>
+<%@page import = "model.dao.DBManagerProduct" %>
 <%@page import = "java.util.ArrayList" %>
 <%@page import = "java.util.ListIterator" %>
 
 <%
-    DBManager manager = (DBManager) session.getAttribute("manager");
+    DBManagerProduct DBManProduct = (DBManagerProduct) session.getAttribute("DBManProduct");
     Customer customer = (Customer) session.getAttribute("customer");
     Staff staff = (Staff) session.getAttribute("staff");
     String displayDeleteButton = "none";
@@ -16,7 +16,7 @@
     else
         displayDeleteButton = "none";
     
-    ArrayList<Product> products = manager.fetchProducts();
+    ArrayList<Product> products = DBManProduct.fetchProducts();
     final int COL = 4;
 
     ArrayList<ArrayList<Product>> grid = new ArrayList();
@@ -42,22 +42,19 @@
         %><div class="row"><%
             while (row_iter.hasNext()) {
                 Product product = (Product) row_iter.next();
-                int supplier_id = product.getSupplier();%>
+                int supplier_id = product.getSupplier();
+                String product_name = product.getName();%>
                 <div class="col-md-3">
                     <div class="card text-center">
                         <div class="card-body">
                             <h5 class="card-title"><%= product.getName()%></h5>
                             <p class="text-truncate"><%= product.getDesc()%></p>
-                            <!--<a  style="display:  displayAddCartButton %>;"
-                                href="AddToCartServlet?supplier_id= supplier_id %>&product_name= product.getName()%>">
-                                <button class="btn btn-outline-warning">Add to Cart</button>
-                            </a>-->
                             <a  style="display: <%= displayAddCartButton %>;"
-                                href="addcart.jsp">
+                                href="ServletCartAdd?supplier_id=<%= supplier_id %>&product_name=<%= product_name %>">
                                  <button class="btn btn-outline-warning">Add to Cart</button>
                             </a>
                             <a  style="display: <%= displayDeleteButton %>;"
-                                href="DeleteServletProduct?supplier_id=<%= supplier_id %>&product_name=<%= product.getName()%>">
+                                href="ServletProductDelete?supplier_id=<%= supplier_id %>&product_name=<%= product.getName()%>">
                                 <button class="btn btn-outline-warning">Delete</button>
                             </a>
                         </div>

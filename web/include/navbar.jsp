@@ -91,7 +91,7 @@
                            </a>
                        </td>
                        <td>
-                           <a href="LogoutServlet">
+                           <a href="ServletLogout">
                                <button class="btn btn-outline-warning">Logout</button>
                            </a>
                        </td>

@@ -1,4 +1,5 @@
-<jsp:include page="/ConnServlet"/>
+<jsp:include page="/ServletDBConnect"/>
+<jsp:include page="/ServletCartInit"/>
 <jsp:include page="include/header.jsp"/>
 <div class="container text-center">
     <div class="title">

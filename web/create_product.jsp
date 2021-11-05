@@ -1,9 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import = "model.Supplier" %>
-<%@page import = "model.dao.DBManager" %>
-<%@page import = "controller.Validator" %>
 <%@page import = "java.util.ArrayList" %>
 <%@page import = "java.util.ListIterator" %>
+<%@page import = "controller.Validator" %>
+<%@page import = "model.Supplier" %>
+<%@page import = "model.dao.DBManagerSupplier" %>
 <jsp:include page="include/header.jsp"/>
 
 <%
@@ -24,7 +24,7 @@
 <h1 class="text-center">Add Product</h1>
 <h2 class="text-center" style="color: red; display: <%= displayProductExist %>;"><%= error_product_exist %></h2>
 <div class="container">
-    <form method="POST" action="CreateServletProduct">
+    <form method="POST" action="ServletProductCreate">
         <div class="form-group row">
           <label class="col-form-label col-sm-2" for="name">Product Name</label>
           <div class="col-sm-10">
@@ -49,14 +49,14 @@
              <select name="supplier" class="custom-select">
                  
                 <% 
-                   DBManager manager = (DBManager) session.getAttribute("manager");
-                   ArrayList<Supplier> suppliers = manager.fetchSuppliers();
-                   ListIterator<Supplier> iter = suppliers.listIterator();
+                   DBManagerSupplier DBManSupplier = (DBManagerSupplier) session.getAttribute("DBManSupplier");
+                   ArrayList<Supplier> suppliers = DBManSupplier.fetchSuppliers();
+                   ListIterator<Supplier> suppliers_iter = suppliers.listIterator();
                 %>
                 <option selected>Choose...</option>
-                <% while(iter.hasNext()) {
-                    Supplier supplier = (Supplier) iter.next();
-                    int supplier_id = manager.findSupplierId(supplier.getCompanyName(), supplier.getEmail());
+                <% while(suppliers_iter.hasNext()) {
+                    Supplier supplier = (Supplier) suppliers_iter.next();
+                    int supplier_id = DBManSupplier.findSupplierId(supplier.getCompanyName(), supplier.getEmail());
                     String supplierOption = "("+supplier.getCompanyName()+") "+supplier.getFirstName()+" "+supplier.getLastName();
                 %>
                     <option value="<%= supplier_id %>"><%= supplierOption %></option>

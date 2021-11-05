@@ -9,19 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.*;
-import model.dao.DBManager;
-public class EditServletAdmin extends HttpServlet {
+import model.dao.DBManagerStaff;
+public class ServletStaffRegister extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Validator validator = new Validator();
-        DBManager manager   = (DBManager) session.getAttribute("manager");
-        Admin admin   = (Admin) session.getAttribute("admin");
+        DBManagerStaff DBManStaff   = (DBManagerStaff) session.getAttribute("DBManStaff");
         
-        String _email       = admin.getEmail();
-        String _password    = admin.getPassword();
         String email        = request.getParameter("email");
         String password     = request.getParameter("password");
         String mobile       = request.getParameter("mobile");
@@ -36,25 +33,33 @@ public class EditServletAdmin extends HttpServlet {
         validator.clear(session);
         
         if (!validator.validateEmail(email)) {
-            session.setAttribute("error_admin_email", "Error: Email format is incorrect");
+            session.setAttribute("error_staff_email", "Error: Email format is incorrect");
             System.out.println("email error called");
-            request.getRequestDispatcher("edit_admin.jsp").include(request, response);
+            request.getRequestDispatcher("register_staff.jsp").include(request, response);
         } else if (!validator.validateName(firstName) && !validator.validateName(lastName)) {
-            session.setAttribute("error_admin_name", "Error: Name format is incorrect");
+            session.setAttribute("error_staff_name", "Error: Name format is incorrect");
             System.out.println("name error called");
-            request.getRequestDispatcher("edit_admin.jsp").include(request, response);
+            request.getRequestDispatcher("register_staff.jsp").include(request, response);
         } else if (!validator.validatePassword(password)) {
-            session.setAttribute("error_admin_password", "Error: Email format is incorrect");
+            session.setAttribute("error_staff_password", "Error: Email format is incorrect");
             System.out.println("password error called");
-            request.getRequestDispatcher("edit_admin.jsp").include(request, response);
+            request.getRequestDispatcher("register_staff.jsp").include(request, response);
         } else {
             try {
-                manager.updateAdmin(_email, _password, email, password, mobile, firstName, lastName, street, city, state, postCode, country);
-                admin = new Admin(email, password, mobile, firstName, lastName, street, city, state, postCode, country);
-                session.setAttribute("admin", admin);
-                request.getRequestDispatcher("edit_admin.jsp").include(request, response);
+                Staff staff = DBManStaff.findStaff(email, password);
+                if(staff != null) {
+                    session.setAttribute("error_staff_exist", "staff already exists in the database!");
+                    System.out.println("exist error called");
+                    request.getRequestDispatcher("register_staff.jsp").include(request, response);
+                } else {
+                    DBManStaff.createStaff(email, password, mobile, firstName, lastName, street, city, state, postCode, country);
+                    staff = new Staff(email, password, mobile, firstName, lastName, street, city, state, postCode, country);
+                    session.setAttribute("staff", staff);
+                    System.out.println("staff created action");
+                    request.getRequestDispatcher("register_staff.jsp").include(request, response);
+                }
             } catch (SQLException ex) {
-                Logger.getLogger(EditServletAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ServletStaffRegister.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

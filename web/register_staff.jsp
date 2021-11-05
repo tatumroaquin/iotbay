@@ -1,7 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import = "model.City" %>
 <%@page import = "model.State" %>
-<%@page import = "model.dao.DBManager" %>
+<%@page import = "model.dao.DBManagerCity" %>
+<%@page import = "model.dao.DBManagerState" %>
 <%@page import = "controller.Validator" %>
 <%@page import = "java.util.ArrayList" %>
 <%@page import = "java.util.ListIterator" %>
@@ -42,7 +43,7 @@
 <h2 class="text-center" style="color: red; display: <%= displayStaffPasswordError %>;"><%= error_staff_pass %></h2>
 <h2 class="text-center" style="color: red; display: <%= displayStaffNotExist %>;"><%= error_staff_not_exist %></h2>
  <div class="container">
-    <form method="POST" action="RegisterServletStaff">
+    <form method="POST" action="ServletStaffRegister">
 
        <div class="form-group row">
           <label class="col-form-label col-sm-2" for="email">Email</label>
@@ -91,8 +92,8 @@
           <div class="col-sm-10">
              <select name="city" class="custom-select">
              <% 
-                   DBManager manager = (DBManager) session.getAttribute("manager");
-                   ArrayList<City> cities = manager.fetchCities();
+                   DBManagerCity DBManCity = (DBManagerCity) session.getAttribute("DBManCity");
+                   ArrayList<City> cities = DBManCity.fetchCities();
                    ListIterator<City> cities_iter = cities.listIterator();
              %>
                 <option selected>Choose...</option>
@@ -109,7 +110,8 @@
           <div class="col-sm-10">
              <select name="state" class="custom-select">
              <%
-                 ArrayList<State> states = manager.fetchStates();
+                 DBManagerState DBManState = (DBManagerState) session.getAttribute("DBManState");
+                 ArrayList<State> states = DBManState.fetchStates();
                  ListIterator<State> states_iter = states.listIterator();
              %>
                 <option selected>Choose...</option>

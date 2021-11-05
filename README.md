@@ -1,8 +1,7 @@
 # IoTbay Deployment Instructions
 
 ## Note:
-These instructions have only been tested in NetBeans IDE version `12.3`, any prior versions of this IDE may have different steps which are not specified here.  
-You can read these instructions from [github](https://github.com/ormux/iotbay/tree/01-online-user-access-management) for a nicely formatted view of the text.
+These instructions have only been tested in NetBeans IDE version `12.3`, any prior versions of this IDE may have different steps which are not specified here. You can read these instructions from [github](https://github.com/ormux/iotbay/tree/01-online-user-access-management) for a nicely formatted view of the text.
 ## Database Setup
 1. On the NetBeans IDE go to `Services > Java DB > Create Database` and make an Apache Derby database with the following credentials:
    - dbname: `iotdb`

@@ -37,7 +37,7 @@
     <h2 class="text-center" style="color: red; display: <%= displayStaffEmailError %>;"><%= error_staff_email %></h2>
     <h2 class="text-center" style="color: red; display: <%= displayStaffPasswordError %>;"><%= error_staff_pass %></h2>
     <h2 class="text-center" style="color: red; display: <%= displayStaffNotExist %>;"><%= error_staff_not_exist %></h2>
-    <form method="POST" action="LoginServletStaff">
+    <form method="POST" action="ServletStaffLogin">
         
       <div class="form-group row">
          <label class="col-form-label col-sm-2" for="email">Email</label>

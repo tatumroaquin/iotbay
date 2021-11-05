@@ -7,22 +7,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.dao.DBManager;
+import model.dao.DBManagerAdmin;
 import model.*;
 
-public class LoginServletAdmin extends HttpServlet {
+public class ServletAdminLogin extends HttpServlet {
 
    @Override
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException {
 
-      HttpSession session = request.getSession();
-      Validator validator = new Validator();
+      HttpSession session       = request.getSession();
+      Validator validator       = new Validator();
 
-      String email = request.getParameter("email");
-      String password = request.getParameter("password");
+      String email              = request.getParameter("email");
+      String password           = request.getParameter("password");
 
-      DBManager manager = (DBManager) session.getAttribute("manager");
+      DBManagerAdmin DBManAdmin = (DBManagerAdmin) session.getAttribute("DBManAdmin");
       Admin admin;
 
       validator.clear(session);
@@ -35,12 +35,12 @@ public class LoginServletAdmin extends HttpServlet {
          request.getRequestDispatcher("login_admin.jsp").include(request, response);
       } else {
          try {
-            admin = manager.findAdmin(email, password);
+            admin = DBManAdmin.findAdmin(email, password);
             if (admin != null) {
-               manager.createUALAdminLogin(admin);
+               DBManAdmin.createUALAdminLogin(admin);
                session.setAttribute("admin", admin);
                //response.sendRedirect(request.getContextPath() + "/welcome.jsp");
-               request.getRequestDispatcher("login_admin.jsp").include(request, response);
+               request.getRequestDispatcher("index.jsp").include(request, response);
             } else {
                session.setAttribute("error_staff_not_exist", "Staff does not exist");
                request.getRequestDispatcher("login_admin.jsp").include(request, response);

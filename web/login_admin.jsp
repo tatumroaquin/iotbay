@@ -39,7 +39,7 @@
     <h2 class="text-center" style="color: red; display: <%= displayAdminEmailError %>;"><%= error_admin_email %></h2>
     <h2 class="text-center" style="color: red; display: <%= displayAdminPasswordError %>;"><%= error_admin_pass %></h2>
     <h2 class="text-center" style="color: red; display: <%= displayAdminNotExist %>;"><%= error_admin_not_exist %></h2>
-    <form method="POST" action="LoginServletAdmin">
+    <form method="POST" action="ServletAdminLogin">
         
       <div class="form-group row">
          <label class="col-form-label col-sm-2" for="email">Email</label>

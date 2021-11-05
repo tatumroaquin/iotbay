@@ -1,109 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
     <servlet>
-        <servlet-name>ConnServlet</servlet-name>
-        <servlet-class>controller.ConnServlet</servlet-class>
+        <servlet-name>ServletDBConnect</servlet-name>
+        <servlet-class>controller.ServletDBConnect</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>LoginServletCustomer</servlet-name>
-        <servlet-class>controller.LoginServletCustomer</servlet-class>
+        <servlet-name>ServletCustomerLogin</servlet-name>
+        <servlet-class>controller.ServletCustomerLogin</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>LoginServletStaff</servlet-name>
-        <servlet-class>controller.LoginServletStaff</servlet-class>
+        <servlet-name>ServletStaffLogin</servlet-name>
+        <servlet-class>controller.ServletStaffLogin</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>LoginServletAdmin</servlet-name>
-        <servlet-class>controller.LoginServletAdmin</servlet-class>
+        <servlet-name>ServletAdminLogin</servlet-name>
+        <servlet-class>controller.ServletAdminLogin</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RegisterServletCustomer</servlet-name>
-        <servlet-class>controller.RegisterServletCustomer</servlet-class>
+        <servlet-name>ServletCustomerRegister</servlet-name>
+        <servlet-class>controller.ServletCustomerRegister</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RegisterServletStaff</servlet-name>
-        <servlet-class>controller.RegisterServletStaff</servlet-class>
+        <servlet-name>ServletStaffRegister</servlet-name>
+        <servlet-class>controller.ServletStaffRegister</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>EditServletCustomer</servlet-name>
-        <servlet-class>controller.EditServletCustomer</servlet-class>
+        <servlet-name>ServletCustomerEdit</servlet-name>
+        <servlet-class>controller.ServletCustomerEdit</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>EditServletStaff</servlet-name>
-        <servlet-class>controller.EditServletStaff</servlet-class>
+        <servlet-name>ServletStaffEdit</servlet-name>
+        <servlet-class>controller.ServletStaffEdit</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>EditServletAdmin</servlet-name>
-        <servlet-class>controller.EditServletAdmin</servlet-class>
+        <servlet-name>ServletAdminEdit</servlet-name>
+        <servlet-class>controller.ServletAdminEdit</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DeleteServletCustomer</servlet-name>
-        <servlet-class>controller.DeleteServletCustomer</servlet-class>
+        <servlet-name>ServletCustomerDelete</servlet-name>
+        <servlet-class>controller.ServletCustomerDelete</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>LogoutServlet</servlet-name>
-        <servlet-class>controller.LogoutServlet</servlet-class>
+        <servlet-name>ServletLogout</servlet-name>
+        <servlet-class>controller.ServletLogout</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CreateServletProduct</servlet-name>
-        <servlet-class>controller.CreateServletProduct</servlet-class>
+        <servlet-name>ServletProductCreate</servlet-name>
+        <servlet-class>controller.ServletProductCreate</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DeleteServletProduct</servlet-name>
-        <servlet-class>controller.DeleteServletProduct</servlet-class>
+        <servlet-name>ServletProductDelete</servlet-name>
+        <servlet-class>controller.ServletProductDelete</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletCartInit</servlet-name>
+        <servlet-class>controller.ServletCartInit</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletCartAdd</servlet-name>
+        <servlet-class>controller.ServletCartAdd</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletCartDelete</servlet-name>
+        <servlet-class>controller.ServletCartDelete</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
-        <servlet-name>ConnServlet</servlet-name>
-        <url-pattern>/ConnServlet</url-pattern>
+        <servlet-name>ServletDBConnect</servlet-name>
+        <url-pattern>/ServletDBConnect</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>LoginServletCustomer</servlet-name>
-        <url-pattern>/LoginServletCustomer</url-pattern>
+        <servlet-name>ServletCustomerLogin</servlet-name>
+        <url-pattern>/ServletCustomerLogin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>LoginServletStaff</servlet-name>
-        <url-pattern>/LoginServletStaff</url-pattern>
+        <servlet-name>ServletStaffLogin</servlet-name>
+        <url-pattern>/ServletStaffLogin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>LoginServletAdmin</servlet-name>
-        <url-pattern>/LoginServletAdmin</url-pattern>
+        <servlet-name>ServletAdminLogin</servlet-name>
+        <url-pattern>/ServletAdminLogin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RegisterServletCustomer</servlet-name>
-        <url-pattern>/RegisterServletCustomer</url-pattern>
+        <servlet-name>ServletCustomerRegister</servlet-name>
+        <url-pattern>/ServletCustomerRegister</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RegisterServletStaff</servlet-name>
-        <url-pattern>/RegisterServletStaff</url-pattern>
+        <servlet-name>ServletStaffRegister</servlet-name>
+        <url-pattern>/ServletStaffRegister</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EditServletCustomer</servlet-name>
-        <url-pattern>/EditServletCustomer</url-pattern>
+        <servlet-name>ServletCustomerEdit</servlet-name>
+        <url-pattern>/ServletCustomerEdit</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EditServletStaff</servlet-name>
-        <url-pattern>/EditServletStaff</url-pattern>
+        <servlet-name>ServletStaffEdit</servlet-name>
+        <url-pattern>/ServletStaffEdit</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EditServletAdmin</servlet-name>
-        <url-pattern>/EditServletAdmin</url-pattern>
+        <servlet-name>ServletAdminEdit</servlet-name>
+        <url-pattern>/ServletAdminEdit</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DeleteServletCustomer</servlet-name>
-        <url-pattern>/DeleteServletCustomer</url-pattern>
+        <servlet-name>ServletCustomerDelete</servlet-name>
+        <url-pattern>/ServletCustomerDelete</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>LogoutServlet</servlet-name>
-        <url-pattern>/LogoutServlet</url-pattern>
+        <servlet-name>ServletLogout</servlet-name>
+        <url-pattern>/ServletLogout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CreateServletProduct</servlet-name>
-        <url-pattern>/CreateServletProduct</url-pattern>
+        <servlet-name>ServletProductCreate</servlet-name>
+        <url-pattern>/ServletProductCreate</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DeleteServletProduct</servlet-name>
-        <url-pattern>/DeleteServletProduct</url-pattern>
+        <servlet-name>ServletProductDelete</servlet-name>
+        <url-pattern>/ServletProductDelete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCartInit</servlet-name>
+        <url-pattern>/ServletCartInit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCartAdd</servlet-name>
+        <url-pattern>/ServletCartAdd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCartDelete</servlet-name>
+        <url-pattern>/ServletCartDelete</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

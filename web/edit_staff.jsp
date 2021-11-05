@@ -2,7 +2,9 @@
 <%@page import = "model.Staff" %>
 <%@page import = "model.City" %>
 <%@page import = "model.State" %>
-<%@page import = "model.dao.DBManager" %>
+<%@page import = "model.dao.DBManagerStaff" %>
+<%@page import = "model.dao.DBManagerCity" %>
+<%@page import = "model.dao.DBManagerState" %>
 <%@page import = "controller.Validator" %>
 <%@page import = "java.util.ArrayList" %>
 <%@page import = "java.util.ListIterator" %>
@@ -94,8 +96,8 @@
           <div class="col-sm-10">
              <select name="city" class="custom-select">
                 <% 
-                   DBManager manager = (DBManager) session.getAttribute("manager");
-                   ArrayList<City> cities = manager.fetchCities();
+                   DBManagerCity DBManCity = (DBManagerCity) session.getAttribute("DBManCity");
+                   ArrayList<City> cities = DBManCity.fetchCities();
                    ListIterator<City> cities_iter = cities.listIterator();
                 %>
                 <% while(cities_iter.hasNext()) {
@@ -116,7 +118,8 @@
           <div class="col-sm-10">
              <select name="state" class="custom-select">
                 <%
-                 ArrayList<State> states = manager.fetchStates();
+                 DBManagerState DBManState = (DBManagerState) session.getAttribute("DBManState");
+                 ArrayList<State> states = DBManState.fetchStates();
                  ListIterator<State> states_iter = states.listIterator();
                 %>
                 <% while(states_iter.hasNext()) {
@@ -148,7 +151,7 @@
        </div>
        <input type="submit" name="submit" class="btn btn-outline-warning" value="Edit"/>
     </form>
-                 <a href="DeleteServletStaff">
+                 <a href="ServletStaffDelete">
                      <button class="btn btn-outline-warning">Delete Account</button>
                  </a>
  </div>

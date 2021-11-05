@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import = "model.UAL" %>
 <%@page import = "model.Customer" %>
-<%@page import = "model.dao.DBManager" %>
+<%@page import = "model.dao.DBManagerCustomer" %>
 <%@page import = "java.util.ArrayList" %>
 <%@page import = "java.util.ListIterator" %>
 <jsp:include page="include/header.jsp"/>
@@ -27,9 +27,9 @@
             <th>Logout Time</th>
          </tr>
      <% 
-         DBManager manager = (DBManager) session.getAttribute("manager");
+         DBManagerCustomer DBManCustomer = (DBManagerCustomer) session.getAttribute("DBManCustomer");
          Customer customer = (Customer) session.getAttribute("customer");
-         ArrayList<UAL> uals = manager.fetchUALCustomer(customer);
+         ArrayList<UAL> uals = DBManCustomer.fetchUALCustomer(customer);
          ListIterator<UAL> UALs_iter = uals.listIterator();
          
          String doSearch   = request.getParameter("submit");

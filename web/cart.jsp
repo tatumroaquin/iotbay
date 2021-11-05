@@ -13,20 +13,23 @@
         <tr>
             <th><strong>Name</strong></th>
             <th><strong>Price</strong></th>
+            <th><strong>Quantity</strong></th>
             <th><strong>Action</strong></th>
         </tr>
     <%
         while(cart_iter.hasNext()) {
             Product product = (Product) cart_iter.next();
             
-            String name = product.getName();
-            float price = product.getPrice();
+            String name     = product.getName();
+            float price     = product.getPrice();
+            int quantity    = product.getQuantity();
             int supplier_id = product.getSupplier();
-            total += price;
+            total += price * quantity;
             %>
             <tr>
                 <td><%= name %></td>
                 <td><%= price %></td>
+                <td><%= quantity %></td>
                 <td><a href="ServletCartDelete?supplier_id=<%=supplier_id%>&product_name=<%=name%>">
                         <button class="btn btn-outline-warning">Remove</button>
                     </a>
@@ -35,9 +38,20 @@
             <%
         }
     %>
+    <%String displayCheckoutButton = "block";
+      if (cart.isEmpty()) {
+          displayCheckoutButton = "none";
+      }
+    %>
         <tr>
             <th>Total</th>
             <td><%= total %></td>
+            <td></td>
+            <td style="display: <%= displayCheckoutButton %>">
+                <a href="#">
+                    <button class="btn btn-outline-warning">Checkout</button>
+                </a>
+            </td>
         </tr>
         
     </table>

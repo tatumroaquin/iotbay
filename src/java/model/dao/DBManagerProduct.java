@@ -36,7 +36,7 @@ public class DBManagerProduct {
          String _name     = resultSet.getString("name");
 
          if(_supplier_id == supplier_id && _name.equals(name)) {
-             supplier_id  = resultSet.getInt("id");
+             product_id  = resultSet.getInt("id");
          }
       }
       
@@ -117,4 +117,25 @@ public class DBManagerProduct {
       int result = statement.executeUpdate();
       System.out.println(result+" rows deleted");
    }
+
+   public void updateProduct(
+          String _name, int _supplier, 
+          int supplier, String name, float price, String desc, int quantity 
+      ) throws SQLException {
+        String query = "UPDATE Products SET ";
+        query += "supplier_id=?, name=?, price=?, description=?, quantity=? ";
+        query += "WHERE email=? AND password=?";
+        
+        PreparedStatement statement = this.conn.prepareStatement(query);
+        statement.setInt(1, supplier);
+        statement.setString(2, name);
+        statement.setFloat(3, price);
+        statement.setString(4, desc);
+        statement.setInt(5, quantity);
+
+        statement.setString(6, _name);
+        statement.setInt(7, _supplier);
+        int result = statement.executeUpdate();
+        System.out.println(result+" rows updated");
+      }
 }

@@ -31,28 +31,30 @@
             chunk = new ArrayList();
         }
     }
-    if (chunk.size() != 0) { // if chunk array is not empty push it's contents inside the newArr.
+    if (chunk.size() != 0) {
         grid.add(chunk);
-    }
+     }%>
 
-    ListIterator grid_iter = grid.listIterator();
+<%  ListIterator grid_iter = grid.listIterator();
     while (grid_iter.hasNext()) {
         ArrayList<Product> row = (ArrayList) grid_iter.next();
         ListIterator row_iter = row.listIterator();
         %><div class="row"><%
             while (row_iter.hasNext()) {
-                Product product = (Product) row_iter.next();
-                int supplier_id = product.getSupplier();
-                String product_name = product.getName();%>
+                Product product     = (Product) row_iter.next();
+                int supplier_id     = product.getSupplier();
+                String product_name = product.getName();
+                int product_id      = DBManProduct.findProductId(supplier_id, product_name);
+                int max_quantity    = product.getQuantity();%>
                 <div class="col-md-3">
                     <div class="card text-center">
                         <div class="card-body">
                             <h5 class="card-title"><%= product.getName()%></h5>
                             <p class="text-truncate"><%= product.getDesc()%></p>
-                            <a  style="display: <%= displayAddCartButton %>;"
-                                href="ServletCartAdd?supplier_id=<%= supplier_id %>&product_name=<%= product_name %>">
-                                 <button class="btn btn-outline-warning">Add to Cart</button>
-                            </a>
+                            <button class="btn btn-outline-warning" onclick="sub(<%= product_id %>, 1)">-</button>
+                            <input type=number value=1 min=1 max=<%= max_quantity %> id="qty-<%= product_id %>" name="quantity">
+                            <button class="btn btn-outline-warning" onclick="add(<%= product_id %>, <%= max_quantity %>)">+</button>
+                            <button class="btn btn-outline-warning" onclick="addToCart(<%= supplier_id %>, <%= product_id %>, '<%= product_name %>')">Add to Cart</button>
                             <a  style="display: <%= displayDeleteButton %>;"
                                 href="ServletProductDelete?supplier_id=<%= supplier_id %>&product_name=<%= product.getName()%>">
                                 <button class="btn btn-outline-warning">Delete</button>
@@ -62,5 +64,36 @@
                 </div>
           <%}
         %></div><br>
-    <%}
-%>
+    <%}%>
+<script>
+   function add(pid, max) {
+      let elem_id = `#qty-\${pid}`;
+      let input = document.querySelector(elem_id);
+      let quantity = input.value;
+      if( quantity < max )
+         ++input.value;
+   }
+   function sub(pid, min) {
+      let elem_id = `#qty-\${pid}`;
+      let input = document.querySelector(elem_id);
+      let quantity = input.value;
+      if( quantity > min )
+         --input.value;
+   }
+   function getQuantity(pid) {
+      let elem_id = `#qty-\${pid}`;
+      let input = document.querySelector(elem_id);
+      let quantity = input.value;
+      return quantity;
+   }
+   function addToCart(sid, pid, pname) {
+      let qty = getQuantity(pid);
+      document.location.href=`ServletCartAdd?supplier_id=\${sid}&product_name=\${pname}&quantity=\${qty}`;
+   }
+   function subQuantity(pid, qty) {
+       let elem_id = `#qty-\${pid}`;
+       let input = document.querySelector(elem_id);
+       input.max -= qty;
+   }
+ </script>
+

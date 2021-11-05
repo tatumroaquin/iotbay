@@ -52,7 +52,7 @@
                             <h5 class="card-title"><%= product.getName()%></h5>
                             <p class="text-truncate"><%= product.getDesc()%></p>
                             <button class="btn btn-outline-warning" onclick="sub(<%= product_id %>, 1)">-</button>
-                            <input type=number value=1 min=1 max=<%= max_quantity %> id="qty-<%= product_id %>" name="quantity">
+                            <input type="number" value="1" size="8" min="1" max="<%= max_quantity %>" id="qty-<%= product_id %>" name="quantity">
                             <button class="btn btn-outline-warning" onclick="add(<%= product_id %>, <%= max_quantity %>)">+</button>
                             <button class="btn btn-outline-warning" onclick="addToCart(<%= supplier_id %>, <%= product_id %>, '<%= product_name %>')">Add to Cart</button>
                             <a  style="display: <%= displayDeleteButton %>;"

@@ -43,61 +43,68 @@
         displayEditAdmin = "inline-block";
     }
 %>
-<div class="container">
-    <img src="image/logo.png" alt="logo" class="logo"/>
-    <h1 class="nav-title">IoTBay</h1>
-    <nav>
-        <ul>
-           <li>
-              <a href="index.jsp">Index</a>
-           </li>
-           <li style="display: <%= displayCreateProduct %>;">
-              <a href="create_product.jsp">Add Products</a>
-           </li>
-           <li>
-              <a href="register.jsp">Register</a>
-           </li>
-           <li style="display: <%= displayLogin %>;">
-              <a href="login.jsp">Login</a>
-           </li>
-           <li style="display: <%= displayUALCustomer%>;">
-              <a href="ual_customer.jsp">UAL Customer</a>
-           </li>
-           <li style="display: <%= displayUALStaff%>;">
-              <a href="ual_staff.jsp">UAL Staff</a>
-           </li>
-           <li style="display: <%= displayUALAdmin%>;">
-              <a href="ual_admin.jsp">UAL Admin</a>
-           </li>
-           <li>
-               <a href="cart.jsp">Cart</a>
-           </li>
-           <li style="float: right; display: <%= displayButtons %>;">
-               <table>
-                   <tr>
-                       <td style="display: <%= displayEditCustomer %>;">
-                           <a href="edit_customer.jsp">
-                               <button class="btn btn-outline-warning">Customer Account</button>
-                           </a>
-                       </td>
-                       <td style="display: <%= displayEditStaff %>;">
-                           <a href="edit_staff.jsp">
-                               <button class="btn btn-outline-warning">Staff Account</button>
-                           </a>
-                       </td>
-                       <td style="display: <%= displayEditAdmin %>;">
-                           <a href="edit_admin.jsp">
-                               <button class="btn btn-outline-warning">Admin Account</button>
-                           </a>
-                       </td>
-                       <td>
-                           <a href="ServletLogout">
-                               <button class="btn btn-outline-warning">Logout</button>
-                           </a>
-                       </td>
-                    </tr>
-               </table>
-           </li>
-        </ul>
-    </nav>
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom justify-content-between">
+  <a class="navbar-brand" href="index.jsp">
+     <img src="image/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+     IoTbay
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
+     <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <ul class="navbar-nav mr-auto">
+        <li class="nav-item" class="navbar-item active">
+           <a class="nav-link" href="index.jsp">Index</a>
+        </li>
+        <li class="nav-item" class="nav-item" style="display: <%= displayCreateProduct %>;">
+           <a class="nav-link" href="create_product.jsp">Add Products</a>
+        </li>
+        <li class="nav-item" class="nav-item">
+           <a class="nav-link" href="register.jsp">Register</a>
+        </li>
+        <li class="nav-item" class="nav-item" style="display: <%= displayLogin %>;">
+           <a class="nav-link" href="login.jsp">Login</a>
+        </li>
+        <li class="nav-item" style="display: <%= displayUALCustomer%>;">
+           <a class="nav-link" href="ual_customer.jsp">UAL Customer</a>
+        </li>
+        <li class="nav-item" style="display: <%= displayUALStaff%>;">
+           <a class="nav-link" href="ual_staff.jsp">UAL Staff</a>
+        </li>
+        <li class="nav-item" style="display: <%= displayUALAdmin%>;">
+           <a class="nav-link" href="ual_admin.jsp">UAL Admin</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="cart.jsp">Cart</a>
+        </li>
+     </ul>
+     <ul class="navbar-nav ml-auto">
+        <li class="nav-item" style="float: right; display: <%= displayButtons %>;">
+           <table>
+               <tr>
+                   <td style="display: <%= displayEditCustomer %>;">
+                       <a class="nav-link" href="edit_customer.jsp">
+                           <button class="btn btn-outline-warning">Customer Account</button>
+                       </a>
+                   </td>
+                   <td style="display: <%= displayEditStaff %>;">
+                       <a class="nav-link" href="edit_staff.jsp">
+                           <button class="btn btn-outline-warning">Staff Account</button>
+                       </a>
+                   </td>
+                   <td style="display: <%= displayEditAdmin %>;">
+                       <a class="nav-link" href="edit_admin.jsp">
+                           <button class="btn btn-outline-warning">Admin Account</button>
+                       </a>
+                   </td>
+                   <td>
+                       <a class="nav-link" href="ServletLogout">
+                           <button class="btn btn-outline-warning">Logout</button>
+                       </a>
+                   </td>
+                </tr>
+           </table>
+        </li>
+     </ul>
+  </div>
+</nav>

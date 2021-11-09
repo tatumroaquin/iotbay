@@ -13,10 +13,10 @@ body {
     font-family: 'TerminessTTF Nerd Font Mono';
     color: white;
 }
-
+/*
 header {
    background-color: green;
-}
+}*/
 
 header::after {
    content: '';
@@ -39,6 +39,11 @@ header::after {
     padding-top: 5px;
 }
 
+.navbar-custom {
+   color: white !important;
+   background: green !important;
+}
+/*
 nav {
    text-align: center;
 }
@@ -65,3 +70,4 @@ nav ul li a {
 nav ul li a:hover {
    color: orange;
 }
+*/

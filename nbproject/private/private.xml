@@ -3,11 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/Documents/projects/netbeans/iotbay/src/java/model/dao/DBManagerCity.java</file>
+            <file>file:/D:/Documents/projects/netbeans/iotbay/web/index.jsp</file>
             <file>file:/D:/Documents/projects/netbeans/iotbay/web/read_products.jsp</file>
             <file>file:/D:/Documents/projects/netbeans/iotbay/src/java/controller/ServletCartAdd.java</file>
-            <file>file:/D:/Documents/projects/netbeans/iotbay/src/java/controller/ServletAdminLogin.java</file>
+            <file>file:/D:/Documents/projects/netbeans/iotbay/web/register_customer.jsp</file>
+            <file>file:/D:/Documents/projects/netbeans/iotbay/web/login_customer.jsp</file>
             <file>file:/D:/Documents/projects/netbeans/iotbay/src/java/model/dao/DBManagerCustomer.java</file>
-            <file>file:/D:/Documents/projects/netbeans/iotbay/src/java/controller/ServletDBConnect.java</file>
+            <file>file:/D:/Documents/projects/netbeans/iotbay/src/java/model/Staff.java</file>
+            <file>file:/D:/Documents/projects/netbeans/iotbay/src/java/controller/ServletCustomerLogin.java</file>
+            <file>file:/D:/Documents/projects/netbeans/iotbay/web/cart.jsp</file>
         </group>
     </open-files>
 </project-private>
